@@ -2,6 +2,9 @@
 
 VisualEffect API for Flutter to easily add paint effects on your widgets.
 
+> **Warning**
+> This package is experimental for the moment. The API can change at any time.
+
 ## Scroll Effect
 
 The main purpose of this API is to provide an easy and efficiently way to apply scroll animations.
