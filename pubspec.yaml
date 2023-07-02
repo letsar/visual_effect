@@ -4,6 +4,9 @@ version: 0.0.1
 homepage: https://github.com/letsar/visual_effect
 repository: https://github.com/letsar/visual_effect
 issue_tracker: https://github.com/letsar/visual_effect/issues
+screenshots:
+  - description: 'This screenshot shows a card stack effect using this package.'
+    path: screenshots/card_stack.gif
 funding:
   - https://github.com/sponsors/letsar/
 
