@@ -33,4 +33,4 @@ class _ScrolledItem extends StatelessWidget {
 ```
 
 <!-- Links -->
-[card_stack]: https://raw.githubusercontent.com/letsar/visual_effect/screenshots/card_stack.gif
+[card_stack]: https://github.com/letsar/visual_effect/blob/83bff86af00715a18a071f1b133e3c0287b4b338/screenshots/card_stack.gif?raw=true
