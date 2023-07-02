@@ -1,0 +1,28 @@
+name: example
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter  
+  cupertino_icons: ^1.0.2
+  visual_effect:
+    path: ../
+  image: ^4.0.17
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/noise_1.png
+    - assets/noise_2.png
+    - assets/noise_3.png
+  shaders:
+    - shaders/dissolve.frag

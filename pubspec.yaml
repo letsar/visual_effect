@@ -1,0 +1,22 @@
+name: visual_effect
+description: VisualEffect API for Flutter to easily add paint effects on your widgets.
+version: 0.0.1
+homepage: https://github.com/letsar/visual_effect
+repository: https://github.com/letsar/visual_effect
+issue_tracker: https://github.com/letsar/visual_effect/issues
+funding:
+  - https://github.com/sponsors/letsar/
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.9.1
+  vector_math: ^2.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
