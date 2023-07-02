@@ -142,3 +142,6 @@ linter:
     # Having immutable local variables makes larger functions more predictible
     # so we will use `prefer_final_locals` instead.
     unnecessary_final: false
+
+    # For the moment we want feedback
+    public_member_api_docs: false
