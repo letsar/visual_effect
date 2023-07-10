@@ -14,7 +14,6 @@ class ScrollEffect extends SingleChildRenderObjectWidget {
   RenderObject createRenderObject(BuildContext context) {
     return RenderScrollEffect(
       callback: onGenerateVisualEffect,
-      scrollPosition: Scrollable.of(context).position,
     );
   }
 
@@ -23,8 +22,6 @@ class ScrollEffect extends SingleChildRenderObjectWidget {
     BuildContext context,
     RenderScrollEffect renderObject,
   ) {
-    renderObject
-      ..callback = onGenerateVisualEffect
-      ..scrollPosition = Scrollable.of(context).position;
+    renderObject.callback = onGenerateVisualEffect;
   }
 }

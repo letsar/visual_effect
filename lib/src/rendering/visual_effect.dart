@@ -8,7 +8,7 @@ abstract class RenderVisualEffect extends RenderProxyBox {
   // of the sliver, thus the SliverConstraints may not be what we want.
   // So we need to look how to make shaders work without setting this to true.
   @override
-  bool get isRepaintBoundary => true;
+  bool get isRepaintBoundary => false;
 
   @override
   bool get alwaysNeedsCompositing => true;

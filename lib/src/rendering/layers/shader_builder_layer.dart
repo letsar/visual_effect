@@ -47,12 +47,11 @@ class ShaderBuilderLayer extends OffsetLayer {
   }
 
   ui.Image _buildChildScene(Rect bounds, double pixelRatio) {
-    final ui.SceneBuilder builder = ui.SceneBuilder();
-    final Matrix4 transform =
-        Matrix4.diagonal3Values(pixelRatio, pixelRatio, 1);
+    final builder = ui.SceneBuilder();
+    final transform = Matrix4.diagonal3Values(pixelRatio, pixelRatio, 1);
+    transform.translate(-bounds.left, -bounds.top);
     builder.pushTransform(transform.storage);
     addChildrenToScene(builder);
-    builder.pop();
     return builder.build().toImageSync(
           (pixelRatio * bounds.width).ceil(),
           (pixelRatio * bounds.height).ceil(),
@@ -81,10 +80,13 @@ class ShaderBuilderLayer extends OffsetLayer {
 
     try {
       callback(shader, image, size);
+      // canvas.save();
+      // canvas.translate(offset.dx, offset.dy);
       canvas.drawRect(
         Offset.zero & size,
         Paint()..shader = shader,
       );
+      // canvas.restore();
     } finally {
       image.dispose();
     }

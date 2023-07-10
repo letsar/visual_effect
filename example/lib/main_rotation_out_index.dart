@@ -39,6 +39,7 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      addRepaintBoundaries: false,
       itemBuilder: (context, index) {
         return _IndexScope(
           index: index,

@@ -68,21 +68,7 @@ typedef ScrollEffectCallback = VisualEffect Function(
 class RenderScrollEffect extends RenderVisualEffect {
   RenderScrollEffect({
     required ScrollEffectCallback callback,
-    required ScrollPosition scrollPosition,
-  })  : _callback = callback,
-        _scrollPosition = scrollPosition;
-
-  ScrollPosition get scrollPosition => _scrollPosition;
-  ScrollPosition _scrollPosition;
-  set scrollPosition(ScrollPosition value) {
-    if (_scrollPosition == value) {
-      return;
-    }
-    _scrollPosition.removeListener(markNeedsPaint);
-    _scrollPosition = value;
-    _scrollPosition.addListener(markNeedsPaint);
-    markNeedsPaint();
-  }
+  }) : _callback = callback;
 
   ScrollEffectCallback get callback => _callback;
   ScrollEffectCallback _callback;
@@ -99,14 +85,7 @@ class RenderScrollEffect extends RenderVisualEffect {
   @override
   void attach(PipelineOwner owner) {
     super.attach(owner);
-    _scrollPosition.addListener(markNeedsPaint);
     _setParentsOfInterest();
-  }
-
-  @override
-  void detach() {
-    _scrollPosition.removeListener(markNeedsPaint);
-    super.detach();
   }
 
   void _setParentsOfInterest() {

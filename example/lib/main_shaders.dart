@@ -64,7 +64,10 @@ class _Body extends StatelessWidget {
   Widget? _itemBuilder(BuildContext context, int index) {
     return _IndexScope(
       index: index,
-      child: const _ScrolledItem(),
+      child: const Padding(
+        padding: EdgeInsets.all(16),
+        child: _ScrolledItem(),
+      ),
     );
   }
 
@@ -73,10 +76,12 @@ class _Body extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverList.builder(
+          addRepaintBoundaries: false,
           itemBuilder: _itemBuilder,
           itemCount: 20,
         ),
         SliverGrid.builder(
+          addRepaintBoundaries: false,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),
@@ -112,19 +117,16 @@ class _ImageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final id = _IndexScope.of(context) * 10;
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        clipBehavior: Clip.antiAlias,
-        decoration: const ShapeDecoration(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-          ),
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      decoration: const ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
-        child: Image.network(
-          'https://picsum.photos/seed/$id/400/300',
-          fit: BoxFit.cover,
-        ),
+      ),
+      child: Image.network(
+        'https://picsum.photos/seed/$id/400/300',
+        fit: BoxFit.cover,
       ),
     );
   }

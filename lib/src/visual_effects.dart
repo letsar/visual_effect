@@ -141,6 +141,7 @@ class _ShaderVisualEffect extends VisualEffect<ShaderBuilderLayer> {
     final layer = oldLayer ??
         ShaderBuilderLayer(onGenerateShader, program.fragmentShader());
     layer
+      ..offset = offset
       ..size = childSize
       ..devicePixelRatio = devicePixelRatio
       ..callback = onGenerateShader;
