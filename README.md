@@ -9,6 +9,9 @@ VisualEffect API for Flutter to easily add paint effects on your widgets.
 
 The main purpose of this API is to provide an easy and efficiently way to apply scroll animations.
 
+> **Warning**
+> The `addRepaintBoundaries` **MUST** be set to false in the parent Sliver/ScrollView because we explicitely want in that case to repaint for every single scroll so we can add the effect.
+
 For example this Card Stack effect can be obtained with the code below:
 
 ![Card Stack][card_stack]
