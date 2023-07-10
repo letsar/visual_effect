@@ -80,13 +80,10 @@ class ShaderBuilderLayer extends OffsetLayer {
 
     try {
       callback(shader, image, size);
-      // canvas.save();
-      // canvas.translate(offset.dx, offset.dy);
       canvas.drawRect(
         Offset.zero & size,
         Paint()..shader = shader,
       );
-      // canvas.restore();
     } finally {
       image.dispose();
     }

@@ -3,10 +3,10 @@ import 'package:meta/meta.dart';
 import 'package:visual_effect/src/visual_effects.dart';
 
 abstract class RenderVisualEffect extends RenderProxyBox {
-  // It seems we need to set isRepaintBoundary to true in order to make shader
-  // works. The drawback is that the paint method is not called after the layout
-  // of the sliver, thus the SliverConstraints may not be what we want.
-  // So we need to look how to make shaders work without setting this to true.
+  // We don't want it to be a repaint boundary because we want it to be repaint
+  // at each frame in case of a scroll effect.
+  // Maybe we could go further by making it a repaint boundary only if the
+  // item is not totally visible.
   @override
   bool get isRepaintBoundary => false;
 
