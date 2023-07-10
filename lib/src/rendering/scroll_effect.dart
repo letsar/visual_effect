@@ -14,22 +14,35 @@ class ScrollEffectPhase {
   });
 
   final double leading;
-  double leadingLerp({double from = 0, double to = 1}) {
-    return _lerp(from, to, leading);
+  double leadingLerp({
+    double from = 0,
+    double to = 1,
+    Curve curve = Curves.linear,
+  }) {
+    return _lerp(from, to, leading, curve);
   }
 
   final double trailing;
-  double trailingLerp({double from = 0, double to = 1}) {
-    return _lerp(from, to, trailing);
+  double trailingLerp({
+    double from = 0,
+    double to = 1,
+    Curve curve = Curves.linear,
+  }) {
+    return _lerp(from, to, trailing, curve);
   }
 
   final double ratio;
-  double ratioLerp({double from = 0, double to = 1}) {
-    return _lerp(from, to, ratio);
+  double ratioLerp({
+    double from = 0,
+    double to = 1,
+    Curve curve = Curves.linear,
+  }) {
+    return _lerp(from, to, ratio, curve);
   }
 
-  double _lerp(double a, double b, double t) {
-    return a * (1.0 - t) + b * t;
+  double _lerp(double a, double b, double t, Curve curve) {
+    final n = curve.transform(t);
+    return a * (1.0 - n) + b * n;
   }
 
   bool get isLeading => leading > 0;

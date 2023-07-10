@@ -96,21 +96,19 @@ class _ScrolledItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final index = _IndexScope.of(context);
+
     return ScrollEffect(
       onGenerateVisualEffect: (effect, phase) {
-        return effect
-            .grayscale(phase.leadingLerp(to: 0.5))
-            .scale(
-              phase.isLeading
-                  ? phase.leadingLerp(
-                      from: 1,
-                      to: 0.9,
-                      curve: Curves.easeOut,
-                    )
-                  : 1,
-              anchor: Alignment.topCenter,
-            )
-            .translate(y: effect.childSize.height * phase.leading);
+        final isEven = index.isEven;
+        final sign = isEven ? 1 : -1;
+        final anchor = phase.isLeading
+            ? (isEven ? Alignment.bottomLeft : Alignment.bottomRight)
+            : (isEven ? Alignment.topLeft : Alignment.topRight);
+        final angle = Angle.degrees(
+          45 * sign * phase.sign * phase.ratioLerp(curve: Curves.easeOut),
+        );
+        return effect.rotation(angle, anchor: anchor);
       },
       child: const _CardItem(),
     );
