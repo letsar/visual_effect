@@ -298,6 +298,20 @@ extension VisualEffectExtensions on VisualEffect {
     );
   }
 
+  VisualEffect scaleXY({
+    double? scaleX,
+    double? scaleY,
+    Alignment anchor = Alignment.center,
+  }) {
+    final transform = Matrix4.diagonal3Values(scaleX ?? 1, scaleY ?? 1, 1);
+    return _TransformVisualEffect(
+      transform: transform,
+      anchor: anchor,
+      childSize: childSize,
+      childEffect: this,
+    );
+  }
+
   VisualEffect shader(
     String assetKey,
     double devicePixelRatio,
