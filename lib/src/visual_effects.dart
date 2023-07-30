@@ -281,15 +281,17 @@ extension VisualEffectExtensions on VisualEffect {
     );
   }
 
-  VisualEffect scale(
-    double scale, {
+  VisualEffect scale({
+    double x = 1.0,
+    double y = 1.0,
+    double z = 1.0,
     Alignment anchor = Alignment.center,
   }) {
-    if (scale == 1) {
+    if (x == 1 && y == 1 && z == 1) {
       return this;
     }
 
-    final transform = Matrix4.diagonal3Values(scale, scale, 1);
+    final transform = Matrix4.diagonal3Values(x, y, z);
     return _TransformVisualEffect(
       transform: transform,
       anchor: anchor,

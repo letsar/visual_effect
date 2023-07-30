@@ -102,7 +102,7 @@ class _ScrolledItem extends StatelessWidget {
         return effect
             .grayscale(phase.leadingLerp(to: 0.5))
             .scale(
-              phase.isLeading
+              x: phase.isLeading
                   ? phase.leadingLerp(
                       from: 1,
                       to: 0.9,
