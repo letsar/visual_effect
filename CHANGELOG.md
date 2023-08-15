@@ -1,3 +1,9 @@
+## 0.0.5
+
+### Added
+
+* The parameter addRepaintBoundaries in ScrollEffect and CustomEffect to be able to have multiple effect in the widget tree.
+
 ## 0.0.4
 
 ### Changed

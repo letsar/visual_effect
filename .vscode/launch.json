@@ -21,6 +21,13 @@
             "request": "launch",
             "cwd": "example",
             "program": "lib/main_rotation_out_index.dart"
+        },
+        {
+            "name": "Flutter (lib/main_parallax.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "example",
+            "program": "lib/main_parallax.dart"
         }
     ]
 }

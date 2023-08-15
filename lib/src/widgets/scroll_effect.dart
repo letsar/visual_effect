@@ -5,8 +5,11 @@ class ScrollEffect extends SingleChildRenderObjectWidget {
   ScrollEffect({
     super.key,
     required this.onGenerateVisualEffect,
+    bool addRepaintBoundaries = true,
     required Widget child,
-  }) : super(child: RepaintBoundary(child: child));
+  }) : super(
+          child: addRepaintBoundaries ? RepaintBoundary(child: child) : child,
+        );
 
   final ScrollEffectCallback onGenerateVisualEffect;
 
